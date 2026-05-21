@@ -1,12 +1,12 @@
 function getComputerGuess(){
     let numGuess = Math.floor(Math.random() * 3) + 1;
-    console.log("the computer made their choice")
+
     if (numGuess === 1){
         return "rock"
     } else if (numGuess === 2){
         return "paper"
     } else if (numGuess === 3){
-        return "scisssor"
+        return "scissor"
     }
 }
 
@@ -31,7 +31,7 @@ function playRound(humanChoice, computerChoice){
             console.log("You lose! Paper beats rock.");
             return "computer";
         } else if (computerChoice === "scissor"){
-            console.log("You win! Rock beats scisssor.");
+            console.log("You win! Rock beats scissor.");
             return "human";
         }
     } else if (humanChoice === "paper"){
@@ -73,5 +73,6 @@ function playGame (){
             computerScore++;
         }
     }
+    console.log("Final Score is \nyou scored " + humanScore + "\nand the computer scored " + computerScore);
 }
 playGame()

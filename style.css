@@ -1,0 +1,9 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Arial, "Times New Roman";
+}
+html {
+    background-color: rgb(9, 67, 117);
+}

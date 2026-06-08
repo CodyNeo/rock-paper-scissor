@@ -23,36 +23,31 @@ function getHumanGuess(){
 
 function playRound(humanChoice, computerChoice){
     console.log("The computer chose " + computerChoice + " and you chose " + humanChoice);
-    if (humanChoice === "rock"){
-        if (computerChoice === "rock"){
-            console.log("TIE! Nobody wins.");
-            return "tie";
-        } else if (computerChoice === "paper"){
+
+    if (humanChoice === computerChoice){
+        console,log('TIE! Nobody wins.');
+        return 'tie';
+    } else if (humanChoice === "rock"){
+        if (computerChoice === "paper"){
             console.log("You lose! Paper beats rock.");
             return "computer";
-        } else if (computerChoice === "scissor"){
+        } else {
             console.log("You win! Rock beats scissor.");
             return "human";
         }
     } else if (humanChoice === "paper"){
-        if (computerChoice === "paper"){
-            console.log("TIE! Nobody wins.");
-            return "tie";
-        } else if (computerChoice === "scissor"){
+        if (computerChoice === "scissor"){
             console.log("You lose! Paper beats rock.");
             return "computer";
-        } else if (computerChoice === "rock"){
+        } else {
             console.log("You win! Rock beats scisssor.");
             return "human";
         }
     } else if (humanChoice === "scissor"){
-        if (computerChoice === "scissor"){
-            console.log("TIE! Nobody wins.");
-            return "tie";
-        } else if (computerChoice === "rock"){
+        if (computerChoice === "rock"){
             console.log("You lose! Paper beats rock.");
             return "computer";
-        } else if (computerChoice === "paper"){
+        } else {
             console.log("You win! Rock beats scisssor.");
             return "human";
         }

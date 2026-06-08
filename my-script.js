@@ -1,3 +1,10 @@
+const interface = document.querySelector('.game');
+const text = document.querySelectorAll('.text');
+const images = document.querySelectorAll('.image');
+const choice = document.querySelectorAll('.choice');
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerGuess(){
     let numGuess = Math.floor(Math.random() * 3) + 1;
 
@@ -6,18 +13,7 @@ function getComputerGuess(){
     } else if (numGuess === 2){
         return "paper"
     } else if (numGuess === 3){
-        return "scissor"
-    }
-}
-
-function getHumanGuess(){
-    let humanGuess = prompt('Enter your choice:');
-    if(humanGuess === 'rock' || humanGuess === "Rock" || humanGuess === "1" || humanGuess === "ROCK"){
-        return "rock"
-    } else if (humanGuess === 'paper' || humanGuess === "Paper" || humanGuess === "2" || humanGuess === "PAPER"){
-        return "paper"
-    } else if (humanGuess === 'scissor' || humanGuess === "Scissor" || humanGuess === "3" || humanGuess === "SCISSOR"){
-        return "scissor"
+        return "scissors"
     }
 }
 
@@ -25,7 +21,7 @@ function playRound(humanChoice, computerChoice){
     console.log("The computer chose " + computerChoice + " and you chose " + humanChoice);
 
     if (humanChoice === computerChoice){
-        console,log('TIE! Nobody wins.');
+        console.log('TIE! Nobody wins.');
         return 'tie';
     } else if (humanChoice === "rock"){
         if (computerChoice === "paper"){
@@ -36,14 +32,14 @@ function playRound(humanChoice, computerChoice){
             return "human";
         }
     } else if (humanChoice === "paper"){
-        if (computerChoice === "scissor"){
+        if (computerChoice === "scissors"){
             console.log("You lose! Paper beats rock.");
             return "computer";
         } else {
             console.log("You win! Rock beats scisssor.");
             return "human";
         }
-    } else if (humanChoice === "scissor"){
+    } else if (humanChoice === "scissors"){
         if (computerChoice === "rock"){
             console.log("You lose! Paper beats rock.");
             return "computer";
@@ -54,27 +50,37 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame (){
-    let humanScore = 0;
-    let computerScore = 0;
+for (img of images){
+    img.addEventListener('click',function(event) {
 
-    for ( let i = 1 ; i <= 5 ; i++){
+        let humanChoice = this.alt;
         let computerChoice = getComputerGuess();
-        let humanChoice = getHumanGuess();
+    
+        choice[0].setAttribute('src', `./images/${humanChoice}.jpeg`);
+        choice[1].setAttribute('src', `./images/${computerChoice}.jpeg`);
+        
         let winner = playRound(humanChoice, computerChoice);
         if (winner === "human"){
             humanScore++;
         } else if(winner === "computer") {
             computerScore++;
         }
-    }
-    console.log("Final Score is \nyou scored: " + humanScore + "\ncomputer scored: " + computerScore);
-    if (humanScore > computerScore){
-        console.log("YOU WIN!!");
-    } else if (humanScore < computerScore) {
-        console.log("you lose...");
-    } else {
-        console.log("It's a tie.")
-    }
+        text[0].textContent = `Player's Score:${humanScore}`;
+        text[1].textContent = `Compuetr's Score:${computerScore}`
+
+        if (humanScore === 5){
+            alert('YOU WIN!!');
+            humanScore = 0;
+            computerScore = 0;
+            text[0].textContent = `Player's Score:${humanScore}`;
+            text[1].textContent = `Compuetr's Score:${computerScore}`
+        }
+        if(computerScore === 5){
+            alert('you lose...');
+            humanScore = 0;
+            computerScore = 0;
+            text[0].textContent = `Player's Score:${humanScore}`;
+            text[1].textContent = `Compuetr's Score:${computerScore}`
+        }
+    })
 }
-playGame()

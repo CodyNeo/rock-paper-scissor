@@ -7,3 +7,55 @@
 html {
     background-color: rgb(9, 67, 117);
 }
+img {
+    border-radius: 10%;
+}
+.image {
+    width: 100px;
+}
+.images {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    gap: 50px;
+}
+.game-container {
+    background-color: rgb(108, 91, 33);
+    display: flex;
+    margin: 0 auto;
+    border-radius: 5%;
+    box-shadow: 1px 1px 6px rgb(0, 0, 0);
+    width: 500px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    gap: 80px;
+}
+
+.image:hover {
+    border: 3px solid black;
+}
+.image:active {
+    border: 3px solid rgb(101, 19, 172);
+}
+.player , .computer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.game-container img {
+    width: 60px;
+    height: 60px;
+}
+.VS {
+    margin-top: 20px;
+}
+.text {
+ text-align: center;
+ margin-top: 50px;
+ font-size: 20px;
+ font-weight: bold;
+ font-family: 'Courier New', Courier, monospace;
+}
